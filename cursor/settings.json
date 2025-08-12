@@ -33,11 +33,11 @@
   "editor.lineHeight": 27,
   "editor.lineNumbers": "on",
   "editor.matchBrackets": "near",
-  "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
   "editor.renderLineHighlight": "none",
   "editor.scrollbar.horizontalScrollbarSize": 8,
   "editor.scrollbar.verticalScrollbarSize": 8,
+  "editor.scrollbar.vertical": "hidden",
   "explorer.compactFolders": true,
   "explorer.decorations.badges": false,
   "explorer.openEditors.visible": 1,
@@ -82,7 +82,7 @@
     "other": false
   },
   "workbench.editor.editorActionsLocation": "titleBar",
-  "workbench.statusBar.visible": false,
+  "workbench.statusBar.visible": true,
   "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabSizing": "shrink",
   "apc.stylesheet": {
@@ -111,10 +111,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.preferredDarkColorTheme": "Vesper Extended",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
-  },
   "redhat.telemetry.enabled": false,
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path-windows": "C:\\Users\\iam\\.vs-kubernetes\\tools\\helm\\windows-amd64\\helm.exe",
@@ -137,9 +133,6 @@
   "terraform.experimentalFeatures.prefillRequiredFields": true,
   "update.mode": "manual",
   "terminal.integrated.inheritEnv": false,
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
   "editor.linkedEditing": true,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "git.openRepositoryInParentFolders": "never",
@@ -147,7 +140,8 @@
   "remote.SSH.remotePlatform": {
     "ec2-3-38-201-43.ap-northeast-2.compute.amazonaws.com": "linux",
     "3.36.31.158": "linux",
-    "factrio": "linux"
+    "factrio": "linux",
+    "o11y-nordy": "linux"
   },
   "[helm]": {
     "editor.tabSize": 2,
@@ -222,6 +216,43 @@
   "debug.disassemblyView.showSourceCode": false,
   "editor.insertSpaces": false,
   "editor.comments.insertSpace": false,
-  "cursor.general.disableHttp2": true,
-  "dev.containers.defaultFeatures": {}
+  "dev.containers.defaultFeatures": {},
+
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "is:open assignee:${user} repo:${owner}/${repository}",
+      "groupBy": ["milestone"]
+    },
+    {
+      "label": "Created Issues",
+      "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+    },
+    {
+      "label": "Recent Issues",
+      "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+    }
+  ],
+  "editor.minimap.autohide": false,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fit",
+  "editor.minimap.maxColumn": 50,
+  "editor.minimap.showSlider": "always",
+  "cursor.composer.usageSummaryDisplay": "never",
+  "files.trimFinalNewlines": true,
+  "json.schemaDownload.enable": true,
+  "[ansible]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "comments": true,
+      "other": true,
+      "strings": true
+    },
+    "editor.autoIndent": "advanced"
+  },
+  "workbench.preferredDarkColorTheme": "Vesper Extended"
 }
