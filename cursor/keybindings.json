@@ -51,10 +51,6 @@
   {
     "key": "ctrl+;",
     "command": "workbench.action.focusActiveEditorGroup"
-  },
-  {
-    "key": "cmd+e",
-    "command": "composerMode.background"
   }
 ]
 
