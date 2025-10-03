@@ -49,7 +49,6 @@ alias ya='yarn'
 alias ls='colorls'
 alias py='python3'
 alias pip='pip3'
-alias po='poetry'
 alias ku='kubectl'
 alias cd='z'
 alias ka='kubectl apply -f'
@@ -87,18 +86,10 @@ autoload -Uz compinit && compinit
 
 ## curl path
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
-
-# dive
-alias dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive"
 
 # golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-
-# SSH_AGENT
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/kocean/Library/pnpm"
@@ -114,7 +105,5 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# Added by Windsurf
-export PATH="/Users/kocean/.codeium/windsurf/bin:$PATH"
-
+# kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
