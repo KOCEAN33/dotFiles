@@ -238,7 +238,7 @@
   "files.trimFinalNewlines": true,
   "json.schemaDownload.enable": true,
   "[ansible]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "redhat.ansible",
     "editor.detectIndentation": true,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,

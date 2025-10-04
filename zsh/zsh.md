@@ -1,13 +1,4 @@
 # Setting Zsh Shell
 
-install plugin first on github.com
-
-some plugin was installed by brew, ruby
-
-```bash
-brew install autojump
-```
-
-```bash
-sudo gem install colorls
-```
+zsh 플러그인 시스템
+https://github.com/zap-zsh/zap

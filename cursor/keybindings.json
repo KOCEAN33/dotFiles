@@ -1,11 +1,14 @@
 // 키 바인딩을 이 파일에 넣어서 기본값 재정의
 [
-  { "key": "cmd+n", "command": "explorer.newFile", "when": "!editorFocus" },
-
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile",
+    "when": "!editorFocus && !composerFocused"
+  },
   {
     "key": "cmd+shift+n",
     "command": "explorer.newFolder",
-    "when": "!editorFocus"
+    "when": "!editorFocus && !composerFocused"
   },
   {
     "key": "ctrl+shift+]",
@@ -51,6 +54,9 @@
   {
     "key": "ctrl+;",
     "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
   }
 ]
-
