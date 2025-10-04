@@ -36,3 +36,6 @@ export PATH=$GOPATH/bin:$PATH
 
 # kiro
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# 1password-cli aws plugin
+source ~/.config/op/plugins.sh

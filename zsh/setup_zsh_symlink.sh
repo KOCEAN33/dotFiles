@@ -57,11 +57,24 @@ if [ -f "$TARGET_ZSH_FILE" ]; then
         sed -i.bak "/$IMPORT_MARKER/,/^$/c\\
 $IMPORT_MARKER\\
 # DotFiles configuration loading\\
-# Automatically load all .zsh files\\
+# Load .zsh files in specific order\\
 if [ -d \"$SCRIPT_DIR\" ]; then\\
-    while IFS= read -r -d '' zsh_file; do\\
-        source \"\$zsh_file\"\\
-    done < <(find \"$SCRIPT_DIR\" -maxdepth 1 -name \"*.zsh\" -type f -print0 2>/dev/null)\\
+    # Load plugins first\\
+    [ -f \"$SCRIPT_DIR/plugins.zsh\" ] && source \"$SCRIPT_DIR/plugins.zsh\"\\
+    # Load common configuration\\
+    [ -f \"$SCRIPT_DIR/common.zsh\" ] && source \"$SCRIPT_DIR/common.zsh\"\\
+    # Load aliases last\\
+    [ -f \"$SCRIPT_DIR/alias.zsh\" ] && source \"$SCRIPT_DIR/alias.zsh\"\\
+    \\
+    # Load any other .zsh files (excluding the ones already loaded)\\
+    for zsh_file in \"$SCRIPT_DIR\"/*.zsh; do\\
+        if [ -f \"\\\$zsh_file\" ]; then\\
+            filename=\\\$(basename \"\\\$zsh_file\")\\
+            if [[ \"\\\$filename\" != \"plugins.zsh\" && \"\\\$filename\" != \"common.zsh\" && \"\\\$filename\" != \"alias.zsh\" ]]; then\\
+                source \"\\\$zsh_file\"\\
+            fi\\
+        fi\\
+    done\\
 else\\
     echo \"Warning: DotFiles zsh directory not found at $SCRIPT_DIR\"\\
 fi" "$TARGET_ZSH_FILE"
@@ -87,11 +100,24 @@ cat >> "$TARGET_ZSH_FILE" << EOF
 
 $IMPORT_MARKER
 # DotFiles configuration loading
-# Automatically load all .zsh files
+# Load .zsh files in specific order
 if [ -d "$SCRIPT_DIR" ]; then
-    while IFS= read -r -d '' zsh_file; do
-        source "\$zsh_file"
-    done < <(find "$SCRIPT_DIR" -maxdepth 1 -name "*.zsh" -type f -print0 2>/dev/null)
+    # Load plugins first
+    [ -f "$SCRIPT_DIR/plugins.zsh" ] && source "$SCRIPT_DIR/plugins.zsh"
+    # Load common configuration
+    [ -f "$SCRIPT_DIR/common.zsh" ] && source "$SCRIPT_DIR/common.zsh"
+    # Load aliases last
+    [ -f "$SCRIPT_DIR/alias.zsh" ] && source "$SCRIPT_DIR/alias.zsh"
+
+    # Load any other .zsh files (excluding the ones already loaded)
+    for zsh_file in "$SCRIPT_DIR"/*.zsh; do
+        if [ -f "\$zsh_file" ]; then
+            filename=\$(basename "\$zsh_file")
+            if [[ "\$filename" != "plugins.zsh" && "\$filename" != "common.zsh" && "\$filename" != "alias.zsh" ]]; then
+                source "\$zsh_file"
+            fi
+        fi
+    done
 else
     echo "Warning: DotFiles zsh directory not found at $SCRIPT_DIR"
 fi
